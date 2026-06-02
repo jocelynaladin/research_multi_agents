@@ -162,25 +162,25 @@ workflow.add_edge("reviser", "critic")
 app = workflow.compile()
 
 # Define initial state
-# initial_state = WorkflowState(
-#     topic="The future of Quantum Computing",
-#     research="",
-#     draft="",
-#     critique="",
-#     revision_count=0,
-#     final_output="",
-#     messages=[]
-# )
+initial_state = WorkflowState(
+    topic="The future of Quantum Computing",
+    research="",
+    draft="",
+    critique="",
+    revision_count=0,
+    final_output="",
+    messages=[]
+)
 
-initial_state = {
-    "topic": "The future of Crypto Market in 2026. Use up to date data from the web to bypass your cutoff date.",
-    "research": "",
-    "draft": "",
-    "critique": "",
-    "revision_count": 0,
-    "final_output": "",
-    "messages": []
-}
+# initial_state = {
+#     "topic": "The future of Crypto Market in 2026. Use up to date data from the web to bypass your cutoff date.",
+#     "research": "",
+#     "draft": "",
+#     "critique": "",
+#     "revision_count": 0,
+#     "final_output": "",
+#     "messages": []
+# }
 
 # Run the workflow
 result = app.invoke(initial_state)
