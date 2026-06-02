@@ -10,7 +10,7 @@ load_dotenv()  # Load environment variables from .env file
 
 llm = ChatOpenAI(model="gpt-4", temperature=0.7)
 
-def research_agent(state: WorkflowState):
+def research_agent(state: WorkflowState) -> WorkflowState:
     # Implement the logic for the research agent
     # For example, it could generate a research question based on the topic
     topic = state['topic']
@@ -33,7 +33,7 @@ def research_agent(state: WorkflowState):
     # Return update state
     return {"research": research}
 
-def writer_agent(state: WorkflowState):
+def writer_agent(state: WorkflowState) -> WorkflowState:
     # Tranform research in engaging content
     research = state['research']
     topic = state['topic']
@@ -57,7 +57,7 @@ def writer_agent(state: WorkflowState):
     
     return {"draft": draft}
 
-def critic_agent(state: WorkflowState):
+def critic_agent(state: WorkflowState) -> WorkflowState:
     """Reviews draft and provides constructive feedback"""
 
     draft = state['draft']
@@ -89,7 +89,7 @@ def critic_agent(state: WorkflowState):
         "revision_count": revision_count + 1
     }
 
-def reviser_agent(state: WorkflowState):
+def reviser_agent(state: WorkflowState) -> WorkflowState:
     """Implements critic's feedback to improve draft"""
 
     draft = state['draft']
@@ -171,16 +171,6 @@ initial_state = WorkflowState(
     final_output="",
     messages=[]
 )
-
-# initial_state = {
-#     "topic": "The future of Crypto Market in 2026. Use up to date data from the web to bypass your cutoff date.",
-#     "research": "",
-#     "draft": "",
-#     "critique": "",
-#     "revision_count": 0,
-#     "final_output": "",
-#     "messages": []
-# }
 
 # Run the workflow
 result = app.invoke(initial_state)

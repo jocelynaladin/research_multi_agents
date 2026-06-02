@@ -1,0 +1,64 @@
+# --- Environment / Secrets ---
+# We are explicitly NOT ignoring .env as requested.
+# If you have other secret files, add them below.
+# Ignore all environment files by default
+*.env
+.env  <-- Commented out to ensure it IS tracked
+
+# --- Python / Bytecode ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- Virtual Environments ---
+.venv/
+venv/
+ENV/
+env/
+# For poetry/pdm
+.pdm-python
+.python-version
+
+# --- Unit Test / Coverage ---
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# --- IDEs / Editors ---
+.vscode/
+.idea/
+*.swp
+*.swo
+.history/
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
